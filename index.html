@@ -391,7 +391,7 @@ const fmtDate=d=>new Intl.DateTimeFormat('ms-MY',{day:'2-digit',month:'short',ye
 
 /* ---------- PELAYAN (Google Apps Script + Google Sheets) ---------- */
 // Tampal URL Web App (berakhir dengan /exec) di antara tanda petikan:
-const API_URL=https://script.google.com/macros/s/AKfycbwrrodpKIJqh6dMWnfh4b47py1CrCxpv3Cds6p6EPOBlHI7pQBS89bXkvVk-cXaPPJjyQ/exec;
+const API_URL="https://script.google.com/macros/s/AKfycbwrrodpKIJqh6dMWnfh4b47py1CrCxpv3Cds6p6EPOBlHI7pQBS89bXkvVk-cXaPPJjyQ/exec";
 let token='';try{token=localStorage.getItem('mada-token')||''}catch(e){}
 const setToken=t=>{token=t||'';try{t?localStorage.setItem('mada-token',t):localStorage.removeItem('mada-token')}catch(e){}};
 let activeUser=null, records=[], team=[];
