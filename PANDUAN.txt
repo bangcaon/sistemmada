@@ -1,0 +1,40 @@
+PANDUAN: SAMBUNG SISTEM MADA KE GOOGLE SHEETS + APPS SCRIPT
+=============================================================
+
+A. SEDIAKAN GOOGLE SHEET + APPS SCRIPT
+1. Buka https://sheets.new  -> namakan "Sistem Pergerakan MADA".
+2. Menu: Extensions (Sambungan) > Apps Script.
+3. Padam semua kod dalam Code.gs, tampal kandungan fail Code.gs (dari pakej ini). Klik Save (ikon disket).
+4. Pilih fungsi "setup" pada dropdown atas > klik Run.
+5. Klik "Review permissions" > pilih akaun Google anda > Advanced > "Go to ... (unsafe)" > Allow.
+   (Amaran ini biasa untuk skrip sendiri.)
+6. Semak Google Sheet: tab Pengguna, Pergerakan, Sesi telah dicipta dan ada 2 penyelia dalam tab Pengguna.
+
+B. DEPLOY SEBAGAI WEB APP
+1. Dalam Apps Script: Deploy > New deployment.
+2. Klik ikon gear > pilih "Web app".
+3. Execute as : Me (akaun anda)
+   Who has access : Anyone
+4. Klik Deploy > salin "Web app URL" (berakhir dengan /exec).
+5. Buka URL itu dalam pelayar: jika keluar {"ok":true,"message":"API ... aktif."} bermakna berjaya.
+
+C. SAMBUNGKAN index.html
+1. Buka index.html dengan Notepad / VS Code.
+2. Cari baris:  const API_URL='PASTE_URL_WEB_APP_DI_SINI';
+3. Gantikan dengan URL Web App tadi. Simpan.
+4. Buka index.html (double-click, atau letak dalam C:\laragon\www\mada\ dan buka http://localhost/mada/).
+5. Log masuk:
+   - Fadzil : 0194750194 / mada3270
+   - Nik Kun: 0125639159 / mada2383
+
+D. BILA UBAH KOD Code.gs KEMUDIAN
+- Deploy > Manage deployments > ikon pensel > Version: "New version" > Deploy.
+  (URL kekal sama. Jika tidak buat versi baharu, perubahan tidak aktif.)
+
+E. TIP & PENYELESAIAN MASALAH
+- "URL Apps Script belum ditetapkan" : API_URL belum diisi.
+- "Tidak dapat berhubung..." : semak URL berakhir /exec dan "Who has access" = Anyone.
+- "Helaian ... tiada" : jalankan setup() dahulu.
+- Lupa kata laluan: edit no. telefon & kata laluan dalam fungsi resetPassword() > Run.
+- Jangan edit tab "Sesi". Tab lain boleh dilihat/dieksport; jangan ubah lajur id atau password_hash.
+- Hanya anda (pemilik Sheet) perlu akses Sheet. Pengguna lain tidak perlu akaun Google.
